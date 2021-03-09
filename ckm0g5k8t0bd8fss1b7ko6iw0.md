@@ -36,7 +36,7 @@ Source code for this tutorial can be found in the [__simplified-tutorial-version
 Oak middleware are functions that execute during the lifecycle of a request to the server. All middleware in Oak has access to a context object. To see a middleware in action,  create a file `app.ts` somewhere in your computer and put following code in it:
 
 ```typescript
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 
 const app = new Application();
 
@@ -61,7 +61,7 @@ Once the `Application` class is imported from Oak, an `app` instance can be crea
 A middleware can either end a request by returning a response or can pass it to the next one using the `next` method. Middleware are processed as stack. A more complex example with middleware for logging incoming requests with response time can be created with following the code:
 
 ```typescript
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 
 const app = new Application();
 
@@ -119,7 +119,7 @@ export default async (ctx: any, next: any) => {
 Now import these two exported functions inside `app.ts` and register using `app.use()` function:
 
 ```typescript
-import { Application } from 'https://deno.land/x/oak/mod.ts';
+import { Application } from 'https://deno.land/x/oak@v6.5.0/mod.ts';
 
 import logger from "../middleware/logger.ts";
 import timer from "../middleware/timer.ts";
@@ -145,7 +145,7 @@ Yeah, that's better. This directory will be now used as our project root. As we 
 In Oak, the Router class can be used for producing middleware to enable routing based on the path-name of the request. So far the application responds with hello world no matter what endpoint we hit, that's not what we want. So, update the code for _hello world_ middleware inside _app.ts_ to look like this:
 
 ```typescript
-import { Application, Router, Status } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router, Status } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 
 import logger from "../middleware/logger.ts";
 import timer from "../middleware/timer.ts";
@@ -340,7 +340,7 @@ You can learn more about docker-compose command line interface from the official
 Also I think this is a good time to configure the database driver. In this project, we won't be using any ORM or query builder. Instead, we'll use the MySQL driver itself to execute our queries. So open up the `db/mysql.ts` file and add following code to it:
 
 ```typescript
-import { Client } from "https://deno.land/x/mysql/mod.ts";
+import { Client } from "https://deno.land/x/mysql@v2.7.0/mod.ts";
 
 const client = await new Client().connect({
   hostname: Deno.env.get("DB_HOST"),
@@ -379,7 +379,7 @@ As mentioned previously, we'll implement functionalities in three steps.
 __Step 1:__ Open up the `controllers/blogs.ts` file and put following code in it:
 
 ```typescript
-import { Status } from "https://deno.land/x/oak/mod.ts";
+import { Status } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 
 import client from "../db/mysql.ts";
 
@@ -405,7 +405,7 @@ If you want to learn more about about the usage of the Deno MySQL database drive
 __Step 2__: In this step, open up `routes/blogs.ts` file and update it's content to look like the following:
 
 ```typescript
-import { Router } from "https://deno.land/x/oak/mod.ts";
+import { Router } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 
 import { index, } from "../controllers/blogs.ts";
 
@@ -421,7 +421,7 @@ We're importing the index function from `controllers/blogs.ts` file and using th
 __Step 3:__ The last step is registering the routes in the app instance. Open up `app.ts` file and update its code to look like the following -
 
 ```typescript
-import { Application, Router, Status } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router, Status } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 
 import logger from "./middleware/logger.ts";
 import timer from "./middleware/timer.ts";
@@ -470,7 +470,7 @@ One thing that we can do is we can put try-catch blocks inside our controller fu
 A better idea is to write a global middleware like the ones we've written earlier and do the error handling centrally. So open up `middleware/error.ts` and put following code in it:
 
 ```typescript
-import { isHttpError, Status } from "https://deno.land/x/oak/mod.ts";
+import { isHttpError, Status } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 
 export default async (ctx: any, next: any) => {
   try {
@@ -520,8 +520,8 @@ That's good enough for this simple project. Lets carry on with the other CRUD en
 __Step 1:__ Open up the `controllers/blogs.ts` file again and add rest of the four functions. The final form of the file should look like as follows:
 
 ```typescript
-import { Status } from "https://deno.land/x/oak/mod.ts";
-import { slugify } from "https://deno.land/x/slugify/mod.ts";
+import { Status } from "https://deno.land/x/oak@v6.5.0/mod.ts";
+import { slugify } from "https://deno.land/x/slugify@0.3.0/mod.ts";
 
 import client from "../db/mysql.ts";
 
@@ -660,7 +660,7 @@ In a real-life scenario, I don't put database queries directly in controller met
 __Step 2:__ Open up __routes/blogs.ts__ and add the newly created middleware with corresponding endpoints. The file's content should look like as follows:
 
 ```typescript
-import { Router } from "https://deno.land/x/oak/mod.ts";
+import { Router } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 
 import { index, show, store, update, destroy } from "../controllers/blogs.ts";
 
@@ -713,9 +713,9 @@ We'll begin by implementing the routes again following our three steps procedure
 __Step 1:__ Open up `controllers/auth.ts` and put following code in there for `register` and `login` routes:
 
 ```typescript
-import { Status } from "https://deno.land/x/oak/mod.ts";
-import { hash, compare } from "https://deno.land/x/bcrypt/mod.ts";
-import { makeJwt, Jose, Payload } from "https://deno.land/x/djwt/create.ts";
+import { Status } from "https://deno.land/x/oak@v6.5.0/mod.ts";
+import { hash, compare } from "https://deno.land/x/bcrypt@v0.2.4/mod.ts";
+import { create, Header, Payload } from "https://deno.land/x/djwt@v2.2/create.ts";
 
 import client from "../db/mysql.ts";
 
@@ -765,16 +765,16 @@ export async function login(ctx: any) {
     };
 
     if (await compare(body.value.password, user.password)) {
-      const header: Jose = { alg: "HS256", typ: "JWT" };
+      const header: Header = { alg: "HS256", typ: "JWT" };
       const payload: Payload = {
         id: user.id,
         name: user.name,
         email: user.email,
       };
       const key: string = Deno.env.get("TOKEN_SECRET") ||
-        "H3EgqdTJ1SqtOekMQXxwufbo2iPpu89O";
+        "secret";
 
-      const token = makeJwt({ header, payload, key });
+      const token = create(header, payload, key);
 
       ctx.response.status = Status.OK;
       ctx.response.type = "json";
@@ -801,7 +801,7 @@ The login route is nothing new until we hit __line 47__. In this line, we're com
 __Step 2:__ Open up `routes/auth.ts` and put following code in there:
 
 ```typescript
-import { Router } from "https://deno.land/x/oak/mod.ts";
+import { Router } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 
 import { register, login } from "../controllers/auth.ts";
 
@@ -818,7 +818,7 @@ We're importing the two controller functions, assigning them as middleware for r
 __Step 3:__ Open up `app.ts` and update the code to look like as follows:
 
 ```typescript
-import { Application, Router, Status } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router, Status } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 
 import logger from "./middleware/logger.ts";
 import timer from "./middleware/timer.ts";
@@ -871,8 +871,8 @@ So far we've implemented endpoints for regsitering users and generating JWTs for
 Open up `middleware/authorize.ts` and put following code in there -
 
 ```typescript
-import { Status } from "https://deno.land/x/oak/mod.ts";
-import { validateJwt } from "https://deno.land/x/djwt/validate.ts";
+import { Status } from "https://deno.land/x/oak@v6.5.0/mod.ts";
+import { verify } from "https://deno.land/x/djwt@v2.2/mod.ts";
 
 export default async (ctx: any, next: any) => {
   const authHeader = ctx.request.headers.get("authorization");
@@ -884,9 +884,9 @@ export default async (ctx: any, next: any) => {
 
     try {
       const key: string = Deno.env.get("TOKEN_SECRET") ||
-        "H3EgqdTJ1SqtOekMQXxwufbo2iPpu89O";
+        "secret";
 
-      const { payload }: any = await validateJwt(token, key);
+      const { payload }: any = await verify(token, key, "HS256");
 
       ctx.request.user = payload;
 
