@@ -715,7 +715,7 @@ __Step 1:__ Open up `controllers/auth.ts` and put following code in there for `r
 ```typescript
 import { Status } from "https://deno.land/x/oak@v6.5.0/mod.ts";
 import { hash, compare } from "https://deno.land/x/bcrypt@v0.2.4/mod.ts";
-import { create, Header, Payload } from "https://deno.land/x/djwt@v2.2/create.ts";
+import { create, Header, Payload } from "https://deno.land/x/djwt@v2.2/mod.ts";
 
 import client from "../db/mysql.ts";
 
@@ -866,7 +866,7 @@ Once the app is running we can test it out:
 
 ## Authorization Middleware
 
-So far we've implemented endpoints for regsitering users and generating JWTs for them. Now we need a middleware that will check if the user is authenticated or not in certain routes.
+So far we've implemented endpoints for registering users and generating JWTs for them. Now we need a middleware that will check if the user is authenticated or not in certain routes.
 
 Open up `middleware/authorize.ts` and put following code in there -
 
@@ -922,7 +922,7 @@ If the user is authenticated the `authorize` middleware will hand over the reque
 
 Now if we try to access one of these protected routes without an access token we'll be responded with 401 response:
 
-![Delete Route wihtout Token](https://cdn.hashnode.com/res/hashnode/image/upload/v1615199619485/IgTlNtsgr.png)
+![Delete Route without Token](https://cdn.hashnode.com/res/hashnode/image/upload/v1615199619485/IgTlNtsgr.png)
 
 Adding the access token required from login route as bearer token however lets us in:
 
