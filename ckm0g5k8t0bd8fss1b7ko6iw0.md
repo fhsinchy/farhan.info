@@ -211,16 +211,26 @@ The first thin we'll deal with is the Docker setup in next section.
 
 # Docker Setup
 
-Open up the `Dockerfile` and update its content as follows:
+Open up the `Dockerfile.dev` and update its content as follows:
 
 ```dockerfile
 FROM hayd/alpine-deno:latest
 
 EXPOSE 3000
 
+RUN deno install -qAf --unstable https://deno.land/x/denon/denon.ts
+
 WORKDIR /usr/app
 
+COPY ./deps.ts .
+
+RUN deno cache --unstable deps.ts
+
 COPY . .
+
+RUN deno cache --unstable app.ts
+
+ENTRYPOINT [ "/usr/local/bin/denon" ]
 
 CMD [ "run", "--unstable", "--allow-net", "--allow-env", "--allow-read", "app.ts" ]
 ```
@@ -231,23 +241,29 @@ Entry-point for this image is the `deno` executable itself, so all we need to pa
 
 If you want to learn more about dockerfile, you can from the official [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) page.
 
-Next, open up the __docker-compose.yml__ and update its content as follows:
+Next, open up the __docker-compose.yaml__ and update its content as follows:
 
 ```yaml
 version: "3.8"
 
 services: 
     db:
-        image: mysql:5.7.30 # https://hub.docker.com/_/mysql
+        image: mysql:latest
+        container_name: deno-blog-db-dev
         command: --default-authentication-plugin=mysql_native_password --explicit_defaults_for_timestamp
         restart: always
         volumes: 
             - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+            - db-data:/var/lib/mysql
         environment:
-            MYSQL_DATABASE: "denoblog"
-            MYSQL_ROOT_PASSWORD: 63eaQB9wtLqmNBpg
+            MYSQL_DATABASE: blog
+            MYSQL_ROOT_PASSWORD: password
     api:
-        build: .
+        build:
+            context: ./
+            dockerfile: Dockerfile.dev
+        image: deno-blog-api:dev
+        container_name: deno-blog-api-dev
         restart: always
         depends_on: 
             - db
@@ -258,9 +274,13 @@ services:
         environment: 
             - DB_HOST=db # this should be identical to the database service name
             - DB_USER=root
-            - DB_DATABASE=denoblog
-            - DB_PASSWORD=63eaQB9wtLqmNBpg
-            - TOKEN_SECRET=QA3GCPvnNO3e6x29dFfzbvIlP8pRNwif # don't forget to change this
+            - DB_DATABASE=blog
+            - DB_PASSWORD=password
+            - TOKEN_SECRET=secret
+
+volumes:
+    db-data:
+        name: deno-blog-db-dev-data
 ```
 
 In this compose file, there are two services. For the `db` service, I'm using the official [mysql](https://hub.docker.com/_/mysql) image with a version tag of 5.7.30. All the configuration options used here can be found on the image page at the docker hub.
