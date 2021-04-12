@@ -12,9 +12,19 @@ Now the question is how do you track down these issues. The answer is you don't,
 
 Now you may think *if a problem is so prevalent, why haven't someone already attempted to fix it?* or *if the solution can be as simple as one of my side-projects is it really worth it?* and to answer these questions, you have to patiently stick with me till the end of this article.
 
+### Table of Content
+
+* [fhsinchy/tent](#fhsinchytenthttpsgithubcomfhsinchytent)
+* [fhsinchy/mcpkgrm](#fhsinchymcpkgrmhttpsgithubcomfhsinchymcpkgrm)
+* [fhsinchy/rmbyext](#fhsinchyrmbyexthttpsgithubcomfhsinchyrmbyext)
+* [fhsinchy/opengapps-unofficial-builds](#fhsinchyopengapps-unofficial-buildshttpsgithubcomfhsinchyopengapps-unofficial-builds)
+* [sayburgh-solutions/mongoose-permissions](#sayburgh-solutionsmongoose-permissionshttpsgithubcomsayburgh-solutionsmongoose-permissions)
+* [Closing Thoughts](#closing-thoughts)
+
 I've come equipped with few case studies to proof my point. These case studies are open-source projects that I've developed solo or along with one of my partners. I'll present the problems I faced and how I came to develop these solutions. Without further ado, let's being with the first one —
 
 ### [fhsinchy/tent](https://github.com/fhsinchy/tent)
+
 Tent is a open-source development-only dependency manager for Linux. What it does is it lets you run regular development dependencies like a [MySQL](https://www.mysql.com/) or [MongoDB](https://www.mongodb.com/) server with a simple one liners —
 
 ```bash
@@ -70,7 +80,8 @@ It took me about two weeks to bring Tent in a stable state and I learned so much
 
 My colleagues have already migrated to it from whatever they were using before and have been pretty satisfied with it so far. Thanks to this project I've also got the chance to join one of the official community meetings and showcase my little program. The [recording](https://bluejeans.com/playback/s/m9virlPgDNUpxpzw8PTHCAF3rx4JAxx2bgEulenNJb88AlmTK5c3fSAyEfLp0DMP) is available on BlueJeans Network. In currently has more than 70 stars on GitHub and 30 or so downloads. For a niche project like Tent and given Podman has not been as widely adopted as Docker, I'm happy with it's state. 
 
-## [fhsinchy/mcpkgrm](https://github.com/fhsinchy/mcpkgrm)
+### [fhsinchy/mcpkgrm](https://github.com/fhsinchy/mcpkgrm)
+
 This program is a bit personal. Back in 2020 I used to own a MacBook Air and one of the annoyances I used to face was the uninstallation process of applications installed using `.pkg` packages.
 
 For those of you who don't know, MacOS applications often come bundled in `.pkg` packages which acts a lot like `.msi` packages on Windows. Now the problem with these packages is that they can not be uninstalled very easily unless the installer comes with an uninstallation script of it's own.
@@ -86,11 +97,13 @@ It's a simple Python program that presents you with a list of all the installed 
 Although I sold my MacBook soon after and development of this program came to an end, I've received a few messages on [Reddit](https://reddit.com) thanking me for writing the program.
 
 ### [fhsinchy/rmbyext](https://github.com/fhsinchy/rmbyext)
+
 This is a very small (40 lines long) Python script that lets you delete all files of a given extension recursively. The name `Remove(rm) by Extension(ext)` literally stands for that.
 
 I mean we all have faced situations where we have to go inside directories and nested directories to hunt down files of a certain extension. I do this a lot and `rmbyext` has become one of the most used program on my computers. Although this was written specifically to fill my needs, I've got 9 stars on the repo maybe because 9 people have found it useful as well.
 
 ### [fhsinchy/opengapps-unofficial-builds](https://github.com/fhsinchy/opengapps-unofficial-builds)
+
 This is one of my oldest projects. Prior to December 22nd, 2017, [The Open GApps Project](https://opengapps.org) didn't have support for Android 8.1 Oreo but many custom ROM providers including [LineageOS](https://lineageos.org) had already released their nightlies and betas to the world. This created a situation where people had necessary firmware but didn't have Google Applications to go with it.
 
 One of the sufferers was me who had just installed LineageOS on my OnePlus X and found myself stranded. So I rolled up my sleeves, built GApps from source with support for API v27 and released them to all my fellow warriors.
@@ -104,6 +117,7 @@ The last comment on the thread was on May 3, 2018 at 11:53 AM by a forum moderat
 Well that made me feel like nothing less of a hero and I still get respected on the forums.
 
 ### [sayburgh-solutions/mongoose-permissions](https://github.com/sayburgh-solutions/mongoose-permissions)
+
 Few days back at work, we needed a simple but effective way to implement Role Based Access Control (RBAC) in a [Node.js](https://nodejs.org/) project. I looked for one online but the ones I found were either overengineered or lacking necessary features.
 
 So I along with my colleague [M H Hasib](https://mhhasib.com) started working on a project of our own inspired from the API of [laravel-permissions](https://spatie.be/docs/laravel-permission) package by [Spatie](https://spatie.be/) and the result was [mongoose-permissions](https://www.npmjs.com/package/mongoose-permissions) package.
@@ -155,6 +169,7 @@ After finishing the project, we were really happy with the API and since then it
 The package gets 11 downloads per week on average. Although those are rookie numbers, we're happy about the fact that we've wrote something that solves not only our issue but maybe someone else's as well.
 
 ### Closing Thoughts
+
 That was the fifth and last case study in today's article. In the end I would like to give you three advice regarding your side-projects —
 
 1. Don't be afraid if someone has already made a similar project. If you think that your reincarnation solves an issue that the previous didn't, go ahead and make that. Case in point my Tent project. I could've just stick to Takeout and avoided the hassle of developing a new program. But Takeout doesn't come as a compiled binary and it also doesn't support Podman as a back-end. I solved those issues with my program and became a winner at the end.
