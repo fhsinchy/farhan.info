@@ -21,7 +21,7 @@ After looking for a boilerplate that suits me and building few APIs myself, I've
 
 In this article I'll discuss the goods, bads and uglies of express application architecture as well as how I came up with this architecture, why I think this is good and how you can use or extend this project for your needs.
 
-### Table of Content
+## Table of Content
 
 * [Folder Structure](#folder-structure)
 * [The `app` and `server` Instances](#the-app-and-server-instances)
@@ -29,7 +29,7 @@ In this article I'll discuss the goods, bads and uglies of express application a
 * [The Web and Service Layers](#the-web-and-service-layers)
 * [Closing Thoughts](#closing-thoughts)
 
-### Folder Structure
+## Folder Structure
 
 The top level folder structure is as follows -
 
@@ -73,7 +73,7 @@ The `seeds` directory contains database seeds and `seed.js` is a simple seeder s
 
 The `nodemon.json` and `jest.config.js` files are configuration files for  [nodemon](https://nodemon.io/)  and  [Jest](https://jestjs.io/)  testing framework.
 
-### The `app` and `server` Instances
+## The `app` and `server` Instances
 
 When I say `app` instance and `server` instance what I'm actually referring to is - 
 
@@ -268,7 +268,7 @@ require('./routes')(app);
 
 This way I can keep the `app.js` file away from frequent changes and registering routes in a separate file keeps the code cleaner.
 
-### Components
+## Components
 
 A common pattern seen not only in Express but also in other platforms is to group code by their technical role instead of components. One example can be as follows -
 
@@ -308,7 +308,7 @@ The `api` directory holds necessary logic for handling the http requests. These 
 
 The `models` directory holds the database models (schemas) and the `services` directory is the service layer for this component.
 
-### The Web and Service Layers
+## The Web and Service Layers
 
 It's  a common practice to divide web applications into three separate layers namely -
 
@@ -473,6 +473,6 @@ A good example is the `seed.js` file which is a DIY seeder implementation for `m
 
 These services can be tested in isolation as well without hitting the `app` instance.
 
-### Closing Thoughts
+## Closing Thoughts
 
 The architecture of your application will always be dictated by your necessities. This boilerplate or architecture is by no means perfect. It's something that I've been using in medium to large scale APIs (both REST and GrahphQL) for quite some time and it hasn't let me down even once. Look around the code-base, if you think it's suitable for your use-case, leave a start and use this as template. If you think something can be improved, let me know or heck you can just contribute directly. That's the beauty of open-source isn't it?
