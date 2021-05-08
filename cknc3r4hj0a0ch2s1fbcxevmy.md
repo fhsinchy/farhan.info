@@ -108,7 +108,7 @@ This is a very small (40 lines long) Python script that lets you delete all file
 
 I mean we all have faced situations where we have to go inside directories and nested directories to hunt down files of a certain extension. I do this a lot and `rmbyext` has become one of the most used program on my computers. Although this was written specifically to fill my needs, I've got 9 stars on the repo maybe because 9 people have found it useful as well.
 
-## [fhsinchy/opengapps-unofficial-builds]
+## fhsinchy/opengapps-unofficial-builds
 
 %[https://github.com/fhsinchy/opengapps-unofficial-builds]
 
