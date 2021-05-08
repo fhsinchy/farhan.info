@@ -12,18 +12,20 @@ Now the question is how do you track down these issues. The answer is you don't,
 
 Now you may think *if a problem is so prevalent, why haven't someone already attempted to fix it?* or *if the solution can be as simple as one of my side-projects is it really worth it?* and to answer these questions, you have to patiently stick with me till the end of this article.
 
-### Table of Content
+## Table of Content
 
-* [fhsinchy/tent](#fhsinchytenthttpsgithubcomfhsinchytent)
-* [fhsinchy/mcpkgrm](#fhsinchymcpkgrmhttpsgithubcomfhsinchymcpkgrm)
-* [fhsinchy/rmbyext](#fhsinchyrmbyexthttpsgithubcomfhsinchyrmbyext)
-* [fhsinchy/opengapps-unofficial-builds](#fhsinchyopengapps-unofficial-buildshttpsgithubcomfhsinchyopengapps-unofficial-builds)
-* [sayburgh-solutions/mongoose-permissions](#sayburgh-solutionsmongoose-permissionshttpsgithubcomsayburgh-solutionsmongoose-permissions)
+* [fhsinchy/tent](#fhsinchytent)
+* [fhsinchy/mcpkgrm](#fhsinchymcpkgrm)
+* [fhsinchy/rmbyext](#fhsinchyrmbyext)
+* [fhsinchy/opengapps-unofficial-builds](#fhsinchyopengapps-unofficial-builds)
+* [sayburgh-solutions/mongoose-permissions](#sayburgh-solutionsmongoose-permissions)
 * [Closing Thoughts](#closing-thoughts)
 
 I've come equipped with few case studies to proof my point. These case studies are open-source projects that I've developed solo or along with one of my partners. I'll present the problems I faced and how I came to develop these solutions. Without further ado, let's being with the first one —
 
-### [fhsinchy/tent](https://github.com/fhsinchy/tent)
+## fhsinchy/tent
+
+%[https://github.com/fhsinchy/tent]
 
 Tent is a open-source development-only dependency manager for Linux. What it does is it lets you run regular development dependencies like a [MySQL](https://www.mysql.com/) or [MongoDB](https://www.mongodb.com/) server with a simple one liners —
 
@@ -80,7 +82,9 @@ It took me about two weeks to bring Tent in a stable state and I learned so much
 
 My colleagues have already migrated to it from whatever they were using before and have been pretty satisfied with it so far. Thanks to this project I've also got the chance to join one of the official community meetings and showcase my little program. The [recording](https://bluejeans.com/playback/s/m9virlPgDNUpxpzw8PTHCAF3rx4JAxx2bgEulenNJb88AlmTK5c3fSAyEfLp0DMP) is available on BlueJeans Network. In currently has more than 70 stars on GitHub and 30 or so downloads. For a niche project like Tent and given Podman has not been as widely adopted as Docker, I'm happy with it's state. 
 
-### [fhsinchy/mcpkgrm](https://github.com/fhsinchy/mcpkgrm)
+## fhsinchy/mcpkgrm
+
+%[https://github.com/fhsinchy/mcpkgrm]
 
 This program is a bit personal. Back in 2020 I used to own a MacBook Air and one of the annoyances I used to face was the uninstallation process of applications installed using `.pkg` packages.
 
@@ -96,13 +100,17 @@ It's a simple Python program that presents you with a list of all the installed 
 
 Although I sold my MacBook soon after and development of this program came to an end, I've received a few messages on [Reddit](https://reddit.com) thanking me for writing the program.
 
-### [fhsinchy/rmbyext](https://github.com/fhsinchy/rmbyext)
+## fhsinchy/rmbyext
+
+%[https://github.com/fhsinchy/rmbyext]
 
 This is a very small (40 lines long) Python script that lets you delete all files of a given extension recursively. The name `Remove(rm) by Extension(ext)` literally stands for that.
 
 I mean we all have faced situations where we have to go inside directories and nested directories to hunt down files of a certain extension. I do this a lot and `rmbyext` has become one of the most used program on my computers. Although this was written specifically to fill my needs, I've got 9 stars on the repo maybe because 9 people have found it useful as well.
 
-### [fhsinchy/opengapps-unofficial-builds](https://github.com/fhsinchy/opengapps-unofficial-builds)
+## [fhsinchy/opengapps-unofficial-builds]
+
+%[https://github.com/fhsinchy/opengapps-unofficial-builds]
 
 This is one of my oldest projects. Prior to December 22nd, 2017, [The Open GApps Project](https://opengapps.org) didn't have support for Android 8.1 Oreo but many custom ROM providers including [LineageOS](https://lineageos.org) had already released their nightlies and betas to the world. This created a situation where people had necessary firmware but didn't have Google Applications to go with it.
 
@@ -116,7 +124,9 @@ The last comment on the thread was on May 3, 2018 at 11:53 AM by a forum moderat
 
 Well that made me feel like nothing less of a hero and I still get respected on the forums.
 
-### [sayburgh-solutions/mongoose-permissions](https://github.com/sayburgh-solutions/mongoose-permissions)
+## sayburgh-solutions/mongoose-permissions
+
+%[https://github.com/sayburgh-solutions/mongoose-permissions]
 
 Few days back at work, we needed a simple but effective way to implement Role Based Access Control (RBAC) in a [Node.js](https://nodejs.org/) project. I looked for one online but the ones I found were either overengineered or lacking necessary features.
 
@@ -168,7 +178,7 @@ After finishing the project, we were really happy with the API and since then it
 
 The package gets 11 downloads per week on average. Although those are rookie numbers, we're happy about the fact that we've wrote something that solves not only our issue but maybe someone else's as well.
 
-### Closing Thoughts
+## Closing Thoughts
 
 That was the fifth and last case study in today's article. In the end I would like to give you three advice regarding your side-projects —
 
