@@ -15,6 +15,7 @@ Going forward I am assuming you have a sound understanding of object-oriented pr
 - [IoC Container](#ioc-container)
 - [Service Container and Service Providers](#service-container-and-service-providers)
 - [To Bind or Not To Bind](#to-bind-or-not-to-bind)
+- [The Full Picture](#the-full-picture)
 - [Suggested Reads](#suggested-reads)
 - [Closing Thoughts](#closing-thoughts)
 
@@ -187,7 +188,7 @@ You can bind any data to this container using the `bind()` method:
 
 ```php
 
-<?PHP
+<?php
 
 // routes/web.php
 
@@ -212,6 +213,8 @@ You can bind classes to this container by passing a callback function that retur
 
 <?php
 
+// routes/web.php
+
 use App\Container;
 use App\Service\TwitterService;
 use Illuminate\Support\Facades\Route;
@@ -235,6 +238,8 @@ Assume your `TwitterService` class needs an API key for authentication. In that 
 ```php
 
 <?php
+
+// routes/web.php
 
 use App\Container;
 use App\Service\TwitterService;
@@ -315,6 +320,8 @@ Instead of binding the concrete class to the container, bind the interface. In t
 
 <?php
 
+// routes/web.php
+
 use App\Container;
 use Illuminate\Support\Facades\Route;
 use App\Interfaces\SocialMediaServiceInterface;
@@ -365,6 +372,8 @@ Update the call to the `bind()` method to return an instance of the `LinkedInSer
 
 <?php
 
+// routes/web.php
+
 use App\Container;
 use App\Interfaces\SocialMediaServiceInterface;
 use Illuminate\Support\Facades\Route;
@@ -393,6 +402,8 @@ Laravel comes with a more powerful IoC container, known as the service container
 
 <?php
 
+// routes/web.php
+
 use App\Container;
 use Illuminate\Support\Facades\Route;
 
@@ -420,6 +431,8 @@ Let me show you an example. Update your code to make two instances of a given cl
 
 <?php
 
+// routes/web.php
+
 use App\Container;
 use Illuminate\Support\Facades\Route;
 
@@ -441,6 +454,8 @@ Indicated by the numbers (#262 and #269) at the end, the two instances are diffe
 ```php
 
 <?php
+
+// routes/web.php
 
 use App\Container;
 use Illuminate\Support\Facades\Route;
