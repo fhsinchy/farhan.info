@@ -603,4 +603,4 @@ You can add, remove, update or clear the shopping cart from anywhere. Prior to t
 
 # Closing Thoughts
 
-The concept of service classes discussed in this article is nothing concrete and I'm not claiming it to be a silver bullet. It's something that I've used in the past and have had no problem whatsoever. If you want to look at some other approach, consider reading about action classes [here](https://freek.dev/1371-refactoring-to-actions/).
+The concept of service classes discussed in this article is nothing concrete and I'm not claiming it to be a silver bullet. It's something that I've used in the past and have had no problem whatsoever. As long as you're thoughtful about using these classes and not overdoing it, you should be good to go.
