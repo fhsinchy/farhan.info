@@ -14,8 +14,8 @@ Going forward I am assuming you have a sound understanding of object-oriented pr
 - [Dependency Injection and IoC](#dependency-injection-and-ioc)
 - [IoC Container](#ioc-container)
 - [Service Container and Service Providers](#service-container-and-service-providers)
-- [To Bind or Not To Bind](#to-bind-or-not-to-bind)
 - [The Full Picture](#the-full-picture)
+- [To Bind or Not To Bind](#to-bind-or-not-to-bind)
 - [Suggested Reads](#suggested-reads)
 - [Closing Thoughts](#closing-thoughts)
 
